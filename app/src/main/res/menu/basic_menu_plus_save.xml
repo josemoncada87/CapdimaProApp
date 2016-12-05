@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/basic_menu_plus_save_about" android:title="Acerca de"></item>
+    <item android:id="@+id/basic_menu_plus_save_save" android:title="Guardar"></item>
+    <item android:id="@+id/basic_menu_plus_save_exit" android:title="Salir"></item>
+</menu>

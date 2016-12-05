@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="co.edu.icesi.gleo.capdimaproapp.CreateSpacesActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Creación de Espacios"
+        android:id="@+id/tv_create_spaces_title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <co.edu.icesi.gleo.capdimaproapp.views.CreateSpacesView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custView_createspaces_canvas"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_create_spaces_title"
+        android:layout_above="@+id/btn_createspaces_newspace"
+
+        />
+
+    <ImageButton
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:id="@+id/btn_createspaces_newspace"
+        android:theme="@style/capdima_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+    <!--   -->
+    <ImageButton
+        android:src="@android:drawable/ic_menu_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_createspaces_mod_move"
+        android:theme="@style/capdima_button"
+        android:layout_below="@+id/custView_createspaces_canvas"
+        android:layout_toEndOf="@+id/btn_createspaces_newspace" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_compass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_createspaces_mod_escale"
+        android:theme="@style/capdima_button"
+        android:layout_below="@+id/custView_createspaces_canvas"
+        android:layout_toEndOf="@+id/btn_createspaces_mod_move" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_creastespaces_delete"
+        android:theme="@style/capdima_button"
+        android:layout_alignBottom="@+id/btn_createspaces_mod_escale"
+        android:layout_toEndOf="@+id/btn_createspaces_mod_escale" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_agenda"
+        android:theme="@style/capdima_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_creastespaces_finish"
+        android:layout_below="@+id/custView_createspaces_canvas"
+        android:layout_toEndOf="@+id/btn_creastespaces_delete" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_zoom"
+        android:theme="@style/capdima_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_createspaces_zoom_in"
+        android:layout_alignTop="@+id/btn_creastespaces_finish"
+        android:layout_toEndOf="@+id/btn_creastespaces_finish" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_search"
+        android:theme="@style/capdima_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_createspaces_zoom_out"
+        android:layout_below="@+id/custView_createspaces_canvas"
+        android:layout_toEndOf="@+id/btn_createspaces_zoom_in" />
+
+
+</RelativeLayout>
