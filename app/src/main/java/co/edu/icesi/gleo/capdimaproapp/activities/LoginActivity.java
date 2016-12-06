@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import co.edu.icesi.gleo.capdimaproapp.R;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -17,13 +19,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        // TODO : Remove on release
-        Intent i = new Intent(this, MainMenuActivity.class);
-        startActivity(i);
-
-
         setUpButtons();
+
+        /*Intent i = new Intent(this, MainMenuActivity.class);
+        startActivity(i);*/
+
     }
 
     private void setUpButtons() {

@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import co.edu.icesi.gleo.capdimaproapp.R;
 
 public class InitialHomeSettingsActivity extends AppCompatActivity {
 

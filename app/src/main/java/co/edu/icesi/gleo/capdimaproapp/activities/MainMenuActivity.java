@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,18 +9,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import co.edu.icesi.gleo.capdimaproapp.R;
+
 public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-        // TODO: Remove on Release
-        Intent i = new Intent(this, InitialHomeSettingsActivity.class);
-        startActivity(i);
-
         setUpButtons();
+
+        /*// TODO: Remove on Release
+        Intent i = new Intent(this, InitialHomeSettingsActivity.class);
+        startActivity(i);*/
 
     }
 

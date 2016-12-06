@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,12 +6,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class OpenHouseActivity extends AppCompatActivity {
+import co.edu.icesi.gleo.capdimaproapp.R;
+
+public class SignupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_open_house);
+        setContentView(R.layout.activity_signup);
     }
 
     @Override
@@ -24,7 +26,6 @@ public class OpenHouseActivity extends AppCompatActivity {
                 finish();
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

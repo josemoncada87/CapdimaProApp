@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import co.edu.icesi.gleo.capdimaproapp.R;
 import co.edu.icesi.gleo.capdimaproapp.views.CreateSpacesView;
 
 public class CreateSpacesActivity extends AppCompatActivity {

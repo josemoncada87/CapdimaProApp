@@ -1,4 +1,4 @@
-package co.edu.icesi.gleo.capdimaproapp;
+package co.edu.icesi.gleo.capdimaproapp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 
+import co.edu.icesi.gleo.capdimaproapp.R;
 import co.edu.icesi.gleo.capdimaproapp.views.NeighborsSelectionView;
 
 public class NeighborsDefinitionActivity extends AppCompatActivity {
