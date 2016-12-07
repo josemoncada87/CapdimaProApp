@@ -48,6 +48,7 @@ public class Space implements Serializable{
     //
 
     public Space(int tipo, Context context, float escala){
+
         x = 100;
         y = 200;
         anchoEspacio = 215;
