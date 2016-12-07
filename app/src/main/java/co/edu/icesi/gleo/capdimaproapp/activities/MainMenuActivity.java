@@ -18,11 +18,6 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         setUpButtons();
-
-        /*// TODO: Remove on Release
-        Intent i = new Intent(this, InitialHomeSettingsActivity.class);
-        startActivity(i);*/
-
     }
 
     private void setUpButtons() {
@@ -49,26 +44,24 @@ public class MainMenuActivity extends AppCompatActivity {
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // TODO: Create About Activity
-               // Intent i = new Intent(getApplicationContext(), AboutCapdima.class);//
-               // startActivity(i);
+                Intent i = new Intent(getApplicationContext(), AboutCapdima.class);//
+                startActivity(i);
             }
         });
     }
-
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.basic_menu_about:
-                // TODO:
+                Intent i = new Intent(getApplicationContext(), AboutCapdima.class);
+                startActivity(i);
             break;
             case R.id.basic_menu_exit:
                 finish();
             break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

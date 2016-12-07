@@ -1,5 +1,6 @@
 package co.edu.icesi.gleo.capdimaproapp.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +21,8 @@ public class SignupActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.basic_menu_about:
-                // TODO:
+                Intent i = new Intent(getApplicationContext(), AboutCapdima.class);
+                startActivity(i);
                 break;
             case R.id.basic_menu_exit:
                 finish();

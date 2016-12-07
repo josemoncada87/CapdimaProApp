@@ -6,6 +6,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 
 import co.edu.icesi.gleo.capdimaproapp.R;
 import co.edu.icesi.gleo.capdimaproapp.views.CreateSpacesView;
@@ -13,7 +16,7 @@ import co.edu.icesi.gleo.capdimaproapp.views.CreateSpacesView;
 /**
  * Created by 1130613425 on 30/06/2016.
  */
-public class Space {
+public class Space implements Serializable{
 
     //
     private float x;
@@ -21,12 +24,6 @@ public class Space {
     private float anchoEspacio;
     private float altoEspacio;
     private int tipo;
-    //
-    private Paint borde;
-    private Paint pared;
-    private Paint piso;
-    private Paint pisoPatio;
-    private Paint imagen;
     //
     public static final int ESPACIO_COCINA = 0;
     public static final int ESPACIO_BANO = 1;
@@ -43,6 +40,12 @@ public class Space {
     private Bitmap cocinaScaled;
     private Bitmap salaScaled;
     private Bitmap comedorScaled;
+    private Paint borde;
+    private Paint pared;
+    private Paint piso;
+    private Paint pisoPatio;
+    private Paint imagen;
+    //
 
     public Space(int tipo, Context context, float escala){
         x = 100;
@@ -171,6 +174,14 @@ public class Space {
     public void mover(float tx, float ty){
         x = tx;
         y = ty;
+    }
+
+    public float getAltoEspacio() {
+        return altoEspacio;
+    }
+
+    public float getAnchoEspacio() {
+        return anchoEspacio;
     }
 
     public void escalarAncho(float tw){

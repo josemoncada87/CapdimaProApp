@@ -76,20 +76,20 @@ public class CreateSpacesView extends View {
         setUpFloors();
 
         // inicializacion base de la Grid
-        escala = 1;
-        ancho   = 1;
-        alto    = 1;
-        frente  = 1;
-        fondo   = 1;
-        moduloAncho = ancho/frente;
-        moduloAlto = alto/fondo;
-        moduloMetro = moduloAncho > moduloAlto ? moduloAlto : moduloAncho;
-        modulo25cms = moduloMetro / 4;
+        escala      =   1;
+        ancho       =   1;
+        alto        =   1;
+        frente      =   1;
+        fondo       =   1;
+        moduloAncho =   ancho/frente;
+        moduloAlto  =   alto/fondo;
+        moduloMetro =   moduloAncho > moduloAlto ? moduloAlto : moduloAncho;
+        modulo25cms =   moduloMetro / 4;
 
         // control configuracion de la grid
-        anchoAltoReady = false;
+        anchoAltoReady   = false;
         frenteFondoReady = false;
-        gridReady =  false;
+        gridReady        = false;
     }
 
     public void setUpHomeSettings(float dFrente, float dFondo){
@@ -166,10 +166,10 @@ public class CreateSpacesView extends View {
             inicioAreaDeTrabajoY += modulo25cms;
         }
         if(frente>=fondo) {
-            // come abajo
+            // elimina espacio abajo
             canvas.drawRect((ancho * 0.05f)-1, ((alto * 0.05f) + (fondo * modulo25cms * 4)), ancho - inicioAreaDeTrabajoX, (alto * 0.95f), coloresBorde[DOWN]);
         }else {
-            // come a la derecha
+            // elimina espacio a la derecha
             canvas.drawRect( (frente*modulo25cms*4) + ancho*0.05f , alto*0.05f , ancho*0.95f, (alto * 0.95f), coloresBorde[RIGHT]);
         }
     }
@@ -225,15 +225,16 @@ public class CreateSpacesView extends View {
                 });*/
                 msn.show();
                 huboCambio =  true;
+                modo = MOVE_MODE;
             }
         }
 
         if (event.getAction() == MotionEvent.ACTION_MOVE) {
             if (selector != null) {
                 if(modo == MOVE_MODE) {
-                    float snapX = (((int)(tx/modulo25cms))*modulo25cms)+(ancho* 0.05f);
-                    float snapY = (((int)(ty/modulo25cms))*modulo25cms)+(alto* 0.05f);
-                    selector.mover(snapX, snapY);
+                    float snapX = (((int)(tx/modulo25cms))*modulo25cms) + (ancho * 0.05f);
+                    float snapY = (((int)(ty/modulo25cms))*modulo25cms) + (alto * 0.05f);
+                    selector.mover(snapX-selector.getAnchoEspacio(), snapY-selector.getAltoEspacio());
                 }else if(modo == SCALE_MODE){
                     int historySize = event.getHistorySize();
                     if (historySize > 0) {
@@ -332,6 +333,11 @@ public class CreateSpacesView extends View {
                 break;
         }*/
 
+    }
+
+
+    public ArrayList<Space> getSpaces() {
+        return spaces;
     }
 
     public void setEscala(float escala) {

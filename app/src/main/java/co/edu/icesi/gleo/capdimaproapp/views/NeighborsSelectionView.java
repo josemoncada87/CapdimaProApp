@@ -102,8 +102,8 @@ public class NeighborsSelectionView extends View {
         }
 
         if(mx>ancho/3&& mx<(ancho/3)+(ancho/3) && my > (alto/3)+(alto/3) && my < alto){
-            hayVecino[ABAJO] = !hayVecino[ABAJO];
-            huboCambio =  true;
+           hayVecino[ABAJO] = !hayVecino[ABAJO];
+           huboCambio =  true;
         }
 
         if(huboCambio) {

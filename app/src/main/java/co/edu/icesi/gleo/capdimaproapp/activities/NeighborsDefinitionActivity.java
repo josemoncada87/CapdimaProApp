@@ -26,20 +26,20 @@ public class NeighborsDefinitionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_neighbors_definition);
 
         setUpDataReceived();
+        setUpButtons();
 
         // TODO:  Remove on Release
-        NeighborsSelectionView cvSelection = (NeighborsSelectionView)findViewById(R.id.custView_neigh_selection_canvas);
+        NeighborsSelectionView cvSelection = (NeighborsSelectionView) findViewById(R.id.custView_neigh_selection_canvas);
         boolean[] neighborsStates = cvSelection.getHayVecino();
-        Intent i = new Intent(this, CreateSpacesActivity.class);
+
+       /*Intent i = new Intent(this, CreateSpacesActivity.class);
         i.putExtra("vecinos",neighborsStates);
         i.putExtra("nombre",nombre);
         i.putExtra("frente",frente);
         i.putExtra("fondo",fondo);
         i.putExtra("pisos",pisos);
-        startActivity(i);
+        startActivity(i);*/
         // -----------------------
-        setUpButtons();
-
     }
 
     private void setUpDataReceived() {

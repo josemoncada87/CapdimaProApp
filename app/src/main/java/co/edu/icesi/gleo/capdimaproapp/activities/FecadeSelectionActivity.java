@@ -1,5 +1,6 @@
 package co.edu.icesi.gleo.capdimaproapp.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,8 +11,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import co.edu.icesi.gleo.capdimaproapp.R;
+import co.edu.icesi.gleo.capdimaproapp.spaces.Space;
 
 public class FecadeSelectionActivity extends AppCompatActivity {
 
@@ -21,6 +24,13 @@ public class FecadeSelectionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fecade_selection);
+
+        Intent prev = getIntent();
+        Bundle b = prev.getExtras();
+        ArrayList<Space> espacios = (ArrayList<Space>) b.get("espacios");
+
+        System.out.println("espacios: " + espacios.size());
+
         //consultaVanos();
 
         Thread t = new Thread(new Runnable() {
@@ -28,7 +38,7 @@ public class FecadeSelectionActivity extends AppCompatActivity {
             public void run() {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    conexionMySQL = DriverManager.getConnection( "jdbc:mysql://172.16.0.105:3306/LMQUINTERO", "LMQUINTERO", "|||||-+++++9" );
+                    conexionMySQL = DriverManager.getConnection( "jdbc:mysql://172.16.0.105:3306/LMQUINTERO", "LMQUINTERO", "QIDN4GT" );
                     System.out.println(conexionMySQL.toString());
 
                     String SQLEjecutar = "select * from vanos WHERE fitness>6.5";

@@ -18,12 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         setUpButtons();
-
-        /*Intent i = new Intent(this, MainMenuActivity.class);
-        startActivity(i);*/
-
     }
 
     private void setUpButtons() {
@@ -35,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), MainMenuActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -43,23 +39,22 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(i);
+                finish();
             }
         });
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.basic_menu_about:
-                // TODO:
+                Intent i = new Intent(getApplicationContext(), AboutCapdima.class);
+                startActivity(i);
                 break;
             case R.id.basic_menu_exit:
                 finish();
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

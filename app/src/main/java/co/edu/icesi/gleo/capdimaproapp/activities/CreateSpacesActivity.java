@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 import co.edu.icesi.gleo.capdimaproapp.R;
+import co.edu.icesi.gleo.capdimaproapp.spaces.Space;
 import co.edu.icesi.gleo.capdimaproapp.views.CreateSpacesView;
 
 public class CreateSpacesActivity extends AppCompatActivity {
@@ -90,7 +93,9 @@ public class CreateSpacesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                Intent i = new Intent(getApplicationContext(), FecadeSelectionActivity.class);
-               startActivity(i);
+                ArrayList<Space> spacesTemp = cvCreateSpace.getSpaces();
+                i.putExtra("espacios", spacesTemp);
+                startActivity(i);
             }
         });
         ImageButton borrar  = (ImageButton)findViewById(R.id.btn_creastespaces_delete);
