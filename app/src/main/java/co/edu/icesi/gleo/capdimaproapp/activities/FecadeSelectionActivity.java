@@ -49,6 +49,8 @@ public class FecadeSelectionActivity extends AppCompatActivity {
 
         System.out.println("espacios: " + espacios.size());
 
+
+
         //consultaVanos();
         //consulta();
     }
