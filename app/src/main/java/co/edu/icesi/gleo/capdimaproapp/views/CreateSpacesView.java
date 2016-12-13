@@ -11,6 +11,7 @@ import android.view.View;
 import java.util.ArrayList;
 import co.edu.icesi.gleo.capdimaproapp.R;
 import co.edu.icesi.gleo.capdimaproapp.spaces.Space;
+import co.edu.icesi.gleo.capdimaproapp.spaces.SpaceView;
 
 /**
  * Created by 1130613425 on 29/06/2016.
@@ -25,6 +26,7 @@ public class CreateSpacesView extends View {
     public static final int MOVE_MODE = 0;
     public static final int SCALE_MODE = 1;
     public static final int DELETE_MODE = 2;
+    public static final int FREE_MODE = 3;
 
     private Paint backgroundColor;
     private Paint neighborColor;
@@ -40,6 +42,8 @@ public class CreateSpacesView extends View {
     private boolean[] vecinos;
 
     private ArrayList<Space> spaces;
+    private ArrayList<SpaceView> spaceViews;
+
     private ArrayList[] pisos;
     private int pisoActual;
     private Space selector;
@@ -72,7 +76,8 @@ public class CreateSpacesView extends View {
         vecinos =  new boolean[4];
         pisoActual = 0;
         modo = MOVE_MODE;
-        spaces =  new ArrayList<>();
+        spaces = new ArrayList<>();
+        spaceViews = new ArrayList<>();
         setUpFloors();
 
         // inicializacion base de la Grid
@@ -305,36 +310,18 @@ public class CreateSpacesView extends View {
     public void agregarEspacio(int tipoDeEspacio) {
 
         //spaces.add(new Space(tipoDeEspacio, getContext(), moduloMetro));
-        pisos[pisoActual].add(new Space(tipoDeEspacio, getContext(), moduloMetro));
-
+        Space nSpace = new Space(tipoDeEspacio, getContext(), moduloMetro);
+        SpaceView nView = new SpaceView(getContext(),nSpace);
+       // spaceViews.add(nView);
+        nSpace.setView(nView);
+        pisos[pisoActual].add(nSpace);
         invalidate();
         requestLayout();
-
-        /*switch (tipoDeEspacio){
-            case ESPACIO_COCINA:
-                spaces.add(new Space(ESPACIO_COCINA));
-                break;
-            case ESPACIO_BANO:
-                spaces.add(new Space(ESPACIO_COCINA));
-                break;
-            case ESPACIO_SALA:
-                spaces.add(new Space(ESPACIO_COCINA));
-                break;
-            case ESPACIO_COMEDOR:
-                spaces.add(new Space(ESPACIO_COCINA));
-                break;
-            case ESPACIO_HABITACION:
-                break;
-            case ESPACIO_CORREDOR:
-                break;
-            case ESPACIO_PATIO:
-                break;
-            case ESPACIO_SALA_COMEDOR:
-                break;
-        }*/
-
     }
 
+    public float getModulo25cms() {
+        return modulo25cms;
+    }
 
     public ArrayList<Space> getSpaces() {
         return spaces;
@@ -352,5 +339,9 @@ public class CreateSpacesView extends View {
 
     public void setNumeroPisos(int numeroPisos) {
         this.numeroPisos = numeroPisos;
+    }
+
+    public boolean[] getVecinos() {
+        return vecinos;
     }
 }

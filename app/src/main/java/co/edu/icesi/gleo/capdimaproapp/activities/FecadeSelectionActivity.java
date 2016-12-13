@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 
 import co.edu.icesi.gleo.capdimaproapp.R;
 import co.edu.icesi.gleo.capdimaproapp.spaces.Space;
+import co.edu.icesi.gleo.capdimaproapp.spaces.SpaceView;
+import co.edu.icesi.gleo.capdimaproapp.views.FecadeSelectionView;
 
 public class FecadeSelectionActivity extends AppCompatActivity {
 
@@ -25,14 +29,31 @@ public class FecadeSelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fecade_selection);
 
+
+
         Intent prev = getIntent();
         Bundle b = prev.getExtras();
         ArrayList<Space> espacios = (ArrayList<Space>) b.get("espacios");
+        boolean[] vecinos = prev.getBooleanArrayExtra("vecinos");
+
+        for(int i = 0 ; i < espacios.size() ; i++){
+            System.out.println("-------------->"+espacios.get(i).getX()+"/"+espacios.get(i).getY());
+        }
+        float mod25 = b.getFloat("mod25");
+
+        FecadeSelectionView v = (FecadeSelectionView) findViewById(R.id.viewFecadeSelection);
+        v.setModulo25cms(mod25);
+        v.setSpaces(espacios);
+        v.setVecinos(vecinos);
+
 
         System.out.println("espacios: " + espacios.size());
 
         //consultaVanos();
+        //consulta();
+    }
 
+    public void consulta(){
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -62,7 +83,7 @@ public class FecadeSelectionActivity extends AppCompatActivity {
                         //vanoTemp.init();
                         //vanosRef.add(vanoTemp);
                     }
-                  //  System.out.println("tamaño en objetos: " + cont);
+                    //  System.out.println("tamaño en objetos: " + cont);
                     System.out.println(resultadoSQL);
                     System.out.println("numero: " + cont + "/11000");
                     st.close();
@@ -77,9 +98,6 @@ public class FecadeSelectionActivity extends AppCompatActivity {
         });
 
         t.start();
-
-
-
     }
 
     public void conectarBDMySQL(String usuario, String contrasena, String ip,

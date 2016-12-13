@@ -95,6 +95,8 @@ public class CreateSpacesActivity extends AppCompatActivity {
                Intent i = new Intent(getApplicationContext(), FecadeSelectionActivity.class);
                 ArrayList<Space> spacesTemp = cvCreateSpace.getSpaces();
                 i.putExtra("espacios", spacesTemp);
+                i.putExtra("mod25", cvCreateSpace.getModulo25cms());
+                i.putExtra("vecinos", cvCreateSpace.getVecinos());
                 startActivity(i);
             }
         });
